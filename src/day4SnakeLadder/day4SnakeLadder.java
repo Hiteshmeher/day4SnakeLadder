@@ -50,8 +50,7 @@ public class day4SnakeLadder {
 	                case 3:
 	                    System.out.println("Invalid input");
 	                    break;
-	            }
-	            i++ ;
+	            } i++ ;
 	        }
 	        System.out.println("Player Position is " + playerPosition);
 	        System.out.println("Total Moves = " + i);

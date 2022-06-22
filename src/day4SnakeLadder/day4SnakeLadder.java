@@ -6,6 +6,5 @@ public class day4SnakeLadder {
 		 int playerPosition = 0;
 		 	System.out.println("Welcome to Snake Ladder Game");
 	        System.out.println("Players starting Position is " +playerPosition);
-	        System.out.println();
 	    }
 	}

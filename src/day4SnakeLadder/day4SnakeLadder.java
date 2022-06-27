@@ -1,58 +1,71 @@
 package day4SnakeLadder;
 
-import java.util.Scanner;
-
 public class day4SnakeLadder {
 
+	static final int NoPlay = 0, Snake = 1, Ladder = 2;
 
-
-		static final int WinningPosition = 100;
-
-	    public static void main(String[] args) {
-	        int playerPosition = 0;
-	        int n;
-	        System.out.println(+playerPosition+" " + "This is the players starting Position");
-	        System.out.println("Rolls the dice to get number ");
-	        int i = 0;
-	        while (playerPosition != WinningPosition) {
-	        	int number = 1 + (int) (Math.random() * 6);
-	        	 int option = (int) Math.floor(Math.random() * 3);
-	            
-	            switch (option) {
-	                case 1:
-	                    System.out.println("Play");
-	                    System.out.println("Dice " + number);
-	                   
-	                    if (option == 0) {
-	                        System.out.println("No Play");
-	                        playerPosition = playerPosition;
-	                        System.out.println("Player position is " + playerPosition);
-	                    }
-	                    else if (option == 1) {
-	                        System.out.println("Ladder came");
-	                        if (playerPosition < WinningPosition)
-	                            playerPosition = playerPosition + number;
-	                        else
-	                            playerPosition = playerPosition - number;
-	                            System.out.println("Player position is " + playerPosition);
-	                    }
-	                    else {
-	                        System.out.println("Snake came");
-	                        playerPosition = playerPosition - number;
-	                        if (playerPosition < 0)
-	                            playerPosition=0;
-	                            System.out.println("Player position is " + playerPosition);
-	                    }
-	                    break;
-	                case 2:
-	                    System.out.println("exit");
-	                    
-	                case 3:
-	                    System.out.println("Invalid input");
-	                    break;
-	            } i++ ;
-	        }
-	        System.out.println("Player Position is " + playerPosition);
-	        System.out.println("Total Moves = " + i);
-	    }
+	public static void main(String[] args) {
+		class getPosition {
+			 
+		int position1 = new getPosition().position;
+		int position2 = new getPosition().position;
+		
+		int position = 0, diceroll;
+		
+		boolean player1 = true;
+		boolean player2 = false ;
+		
+		
+		while(position1 < 100 && position2 < 100) {
+			diceroll = getDiceRoll();
+			
+			switch(getOption()) {
+				case NoPlay :
+					position = position;
+					break;
+				case Snake :
+					position -= diceroll;
+					break;
+				case Ladder :
+					position += diceroll;
+					continue;
+			}
+			
+			if( position > 0) {
+				if (player1) {
+					position1 += position;
+					position = 0;
+					player1 = false;
+					player2  = true;
+				}
+				else {
+					position2 += position;
+					position = 0;
+					player2  = false;
+					player1 = true;
+				}
+			}
+			
+			else {
+				position = 0;
+			}	
+		}
+	if(position1>position2) {
+		System.out.println("Winner Player1");
 	}
+	else {
+		System.out.println("Winner Player2");
+	}
+	
+	}
+
+	private static int getOption() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private static int getDiceRoll() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}
